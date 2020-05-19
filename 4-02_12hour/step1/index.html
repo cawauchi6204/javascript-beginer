@@ -43,7 +43,7 @@ const pmHour = hour => {
         return hour;
     }
 }
-
+// pmかamか判定
 const getAmPm =(hour) => {
     if(hour >= 13) {
         return 'p.m';
@@ -51,6 +51,7 @@ const getAmPm =(hour) => {
         return 'a.m';
     }
 }
+
 
 document.getElementById('time').textContent = `${year}/${month}/${day} ${pmHour(hour)}:${minits}${getAmPm(pmHour(hour))}`;
 
