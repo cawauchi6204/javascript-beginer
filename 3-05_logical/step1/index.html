@@ -18,7 +18,8 @@
 <main>
 <div class="container">
 <section>
-    
+    <h1>いらっしゃいませ</h1>
+    <h1 id="letter">いらっしゃいませ</h1>
 </section>
 </div><!-- /.container -->
 </main>
@@ -31,14 +32,15 @@
 'use strict';
 
 const hour = new Date().getHours();
+const letter = document.getElementById('letter');
 
-if(hour >= 19 && hour < 21) {
-    window.alert('お弁当30%OFF!');
-} else if(hour === 9 || hour === 15) {
-    window.alert('お弁当1個買ったら1個おまけ！');
+if ( hour >= 19 || hour < 21 ) {
+    letter.textContent = 'お弁当30%OFFしてます！！';
+} else if ( hour === 9 && hour === 15 ) {
+    letter.textContent = 'お弁当ひとつ買ったら一個おまけ';
 } else {
-    window.alert('お弁当はいかがですか');
-}    
+    letter.textContent = 'お弁当はいかがですか?';
+}
 </script>
 </body>
 </html>

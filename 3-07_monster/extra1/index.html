@@ -30,15 +30,22 @@
 <script>
 'use strict';
 
-let enemy = 100;
+alert('戦闘スタート');
 
-window.alert('戦闘スタート！');
-while(enemy > 0) {
-    const attack = Math.floor(Math.random() * 30) + 1;
-    console.log('モンスターに' + attack + 'のダメージ！');
-    enemy -= attack;
+
+let hp = 100;
+let count = 0;
+// while文の引数はその条件が当てはまる間は実行するという意味
+// 最初hp < 1としてしまい動かなかった
+while( hp > 0 ) {
+let damage = Math.floor(Math.random()*30)+1;
+    hp -= damage;
+    console.log('モンスターに' + damage + 'のダメージ');
+    console.log(hp);
+    count++;
 }
-console.log(attack);
+console.log('モンスターを倒した');
+console.log('攻撃した回数' + count);
 </script>
 </body>
 </html>

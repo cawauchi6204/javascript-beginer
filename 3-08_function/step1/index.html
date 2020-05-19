@@ -30,12 +30,10 @@
 <script>
 'use strict';
 
-function total(price) {
-    const tax = 0.1;
-    return price + price * tax;
-}
+const tax = 0.1;
+const coffeePrice = price => price + price * tax ;
 
-console.log('コーヒーメーカーの値段は' + total(8000) + '円（税込）です。');
+console.log('コーヒーの値段は' +coffeePrice(8000)+ '円です');
 </script>
 </body>
 </html>
