@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>テンプレート</title>
+<link href="../../_common/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+<link href="../../_common/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div class="container">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.container -->
+</header>
+<main>
+<div class="container">
+<section>
+  <form action="" method="POST" id="form">
+    <select name="select" id="select">
+      <option value="japanese">日本語</option>
+      <option value="english" selected>English</option>
+      <option value="chinese">中文</option>
+    </select>
+  </form>
+<p>日本語のページ</p>
+</section>
+</div><!-- /.container -->
+</main>
+<footer>
+<div class="container">
+<p>JavaScript Samples</p>
+</div><!-- /.container -->
+</footer>
+<script>
+  const select = document.getElementById('select');
+  select.addEventListener('change' , () => {
+    if(select.value === "japanese") {
+      window.location.href="./practice.html"
+    } else if(select.value === "english") {
+      window.location.href="./index-en.html"
+    }else if(select.value === "chinese") {
+      window.location.href="./index-zh.html"
+    }
+  })
+  console.log(select.value);
+  
+</script>
+</body>
+</html>
