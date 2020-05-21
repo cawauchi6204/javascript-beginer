@@ -1,3 +1,5 @@
+![js](./jstyounyuumon.jpg)
+
 # javascript-beginer
 JavaScript超入門の勉強用リポジトリ
 [JavaScript「超」入門](https://books.google.co.jp/books/about/%E7%A2%BA%E3%81%8B%E3%81%AA%E5%8A%9B%E3%81%8C%E8%BA%AB%E3%81%AB%E3%81%A4%E3%81%8FJavaScript.html?id=tU6wDwAAQBAJ&printsec=frontcover&source=kp_read_button&redir_esc=y#v=onepage&q&f=false)
