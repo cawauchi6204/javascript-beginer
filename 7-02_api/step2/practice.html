@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7-01_geolocation</title>
+<link rel="shortcut icon" href="../../_common/images/favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+<link href="../../_common/css/style.css" rel="stylesheet">
+<style>
+main section {
+    text-align: center;
+}
+.position {
+    font-size: 1.5rem;
+    color: #ed8a29;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+</div><!-- /.container -->
+</header>
+<main>
+<div class="container">
+  <p id="data"></p>
+<section>
+</section>
+</div><!-- /.container -->
+</main>
+<footer>
+<div class="container">
+<p>JavaScript Samples</p>
+</div><!-- /.container -->
+</footer>
+<script src="../../_common/scripts/jquery-3.4.1.min.js"></script>
+<script>
+'use strict';
+
+function utcToJSTime(utcTime) {
+  return utcTime * 1000;
+}
+
+function success(pos) {
+  ajaxRequest(pos.coords.latitude,pos.coords.longitude);
+}
+
+function fail(error) {
+  alert('位置情報の取得に失敗しました。エラーコード:' + error.code);
+}
+
+navigator.geolocation.getCurrentPosition(success, fail);
+
+function ajaxRequest(lat , long) {
+  const url = 'https://api.openweathermap.org/data/2.5/forecast';
+  const appId = '4d70b40223a8f59e70164d21193696fb';
+  
+  $.ajax({
+    url:url,
+    data: {
+      appid:appId,
+      lat:lat,
+      lon:long,
+      units:'metric',
+      lang:'ja'
+    }
+  })
+  .done(function(data) {
+    console.log(data);
+
+    console.log('都市名:' + data.city.name);
+    console.log('国名:' + data.city.country);
+
+    data.list.forEach(function(forecast , index) {
+      const dateTime = new Date(utcToJSTime(forecast.dt));
+      const month = dateTime.getMonth() + 1;
+      const date = dateTime.getDate();
+      const hours = dateTime.getHours();
+      const min = String(dateTime.getMinutes()).padStart(2 , '0');
+      const temperature = Math.round(forecast.main.temp);
+      const description = forecast.weather[0].description;
+      const iconPath = `images/${forecast.weather[0].icon}.svg`;
+
+      console.log('日時:' + `${month}/${date} ${hours}:${min}`);
+      console.log('気温:' + temperature);
+      console.log('天気:' + description);
+      console.log('画像パス:' + iconPath);
+    });
+  })
+  .fail(function() {
+    console.log('$.ajax failed');
+  })
+}
+
+
+</script>
+</body>
+</html>
