@@ -1,4 +1,4 @@
-![js](./jstyounyuumon.jpg)
+![js](./JStyounyuumon.jpg)
 
 # javascript-beginer
 JavaScript超入門の勉強用リポジトリ
